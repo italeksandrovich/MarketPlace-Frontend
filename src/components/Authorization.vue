@@ -65,21 +65,26 @@ export default {};
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
-    position: relative;
 
+    .auth-icon {
+      position: relative;
+      top: 50%;
+      left: 0%;
+      transform: translateY(-50%);
+
+      img {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
     input {
       padding: 16px 50px 16px 45px;
       background-color: #ffffff;
       border-radius: 7px;
       border: none;
       outline: none;
-    }
-
-    .auth-icon {
-      position: absolute;
-      top: 50%;
-      left: 5%;
-      transform: translateY(-50%);
     }
   }
 

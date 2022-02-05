@@ -1,21 +1,20 @@
 <template>
   <div class="register">
     <h3 class="register-title">Регистрация в личный кабинет</h3>
-    <form class="register-main">
+    <form class="register-main" @submit.prevent="submit">
       <div class="register-icon">
         <img src="@/assets/image/trophy.svg" alt="" />
       </div>
       <input
+        v-model="form.email"
         type="email"
-        name=""
-        id=""
         required
         placeholder="Email для входа"
       />
       <div class="register-icon mail">
         <img src="@/assets/image/trophy.svg" alt="" />
       </div>
-      <input type="email" name="" id="" required placeholder="Телефон" />
+      <input v-model="form.phone" type="text" required placeholder="Телефон" />
       <div class="register-message">
         <div class="message-icon">
           <img src="@/assets/image/info.svg" alt="" />
@@ -28,21 +27,47 @@
           <a href="#">Отправить еще раз(2) через 30 сек </a>
         </div>
       </div>
-      <button class="submit" type="submit">Зарегистрироваться</button>
+      <button class="submit" type="submit" :disabled="invalid">
+        Зарегистрироваться
+      </button>
       <div class="register-privacy">
-        <input type="checkbox" name="" id="done" required />
+        <input v-model="checkbox" type="checkbox" name="" id="done" required />
         <label for="done"
           >Я принимаю <a href="#">условия соглашения</a> и
           <a href="#">разрешаю оброботку персональных данных</a>
         </label>
       </div>
     </form>
-    <a class="enter" href="#">Войти</a>
+    <button @click="$emit('changeStatus', 'login')" class="enter">Войти</button>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      form: {
+        email: "",
+        phone: "",
+      },
+      checkbox: false,
+    };
+  },
+  computed: {
+    invalid() {
+      if (this.form.email && this.form.phone && this.checkbox) {
+        return false;
+      }
+
+      return true;
+    },
+  },
+  methods: {
+    submit() {
+      this.$emit("submited", { ...this.form, status: "register" });
+    },
+  },
+};
 </script>
 
 <style lang="scss" scoped>
@@ -135,6 +160,11 @@ export default {};
     &:hover {
       color: #ffffff;
       background: #19a0fc;
+    }
+
+    &:disabled {
+      background: #c4c4c4;
+      cursor: not-allowed;
     }
   }
 
