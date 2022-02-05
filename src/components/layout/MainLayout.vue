@@ -3,22 +3,27 @@
     <div class="main-sidebar">
       <SideBar v-model="isOpen" @sign="openPopup" />
     </div>
-    <div class="container">
-      <div class="main-header" @click="isOpen = true">
-        <button class="arrow">
-          <img src="@/assets/image/arrow.svg" alt="" />
-        </button>
-      </div>
-      <div class="main-page">
+    <div class="main-header" @click="isOpen = true">
+      <button class="arrow">
+        <img src="@/assets/image/arrow.svg" alt="" />
+      </button>
+    </div>
+    <div class="main-page">
+      <div class="container">
         <slot />
       </div>
-      <div class="main-footer">Footer</div>
     </div>
+
+    <!-- there is no footer in layout -->
+    <!-- <div class="main-footer">Footer</div> -->
 
     <Popup v-model="authPopupShow" class="confirm-popup" size="sm">
       <template #body>
         <div class="confirm-body">
-          <Authorization v-if="status === 'login'" />
+          <Authorization
+            v-if="status === 'login'"
+            @changeStatus="status = $event"
+          />
           <Register
             v-if="status === 'register'"
             @submited="submit"
@@ -47,7 +52,7 @@ export default {
   components: { SideBar, Popup, Authorization, Register, Password },
   data() {
     return {
-      isOpen: true,
+      isOpen: false,
       status: "",
       authPopupShow: false,
       authPopup: {},
@@ -91,6 +96,33 @@ export default {
 
 <style lang="scss" scoped>
 .main-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+
+  .main {
+    &-header {
+      position: fixed;
+      top: 0;
+      right: 0;
+      left: 0;
+      background: #fff;
+      box-shadow: 0 10px 5px rgba($color: #000000, $alpha: 0.3);
+      padding: 15px;
+    }
+
+    &-page {
+      padding: 80px 15px 15px;
+      flex: 1;
+      overflow: hidden auto;
+    }
+
+    &-footer {
+      padding: 15px;
+    }
+  }
+
   .arrow {
     width: 32px;
     height: 32px;

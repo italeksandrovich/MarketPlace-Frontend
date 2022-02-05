@@ -24,7 +24,10 @@
         Авторизуясь, вы соглашаетесь с <a href="#">правилами сервиса</a> и
         <a href="#">обработки персональных данных</a>
       </p>
-      <a class="reset" href="#">Забыли пароль?</a>
+      <button @click="$emit('changeStatus', 'reset-password')">
+        Забыли пароль?
+      </button>
+      <button @click="$emit('changeStatus', 'register')">Регистрация</button>
     </div>
   </div>
 </template>
@@ -62,25 +65,27 @@ export default {};
   }
 
   &-link {
+    position: relative;
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
 
     .auth-icon {
-      position: relative;
+      position: absolute;
       top: 50%;
-      left: 0%;
+      left: 5px;
+      width: 25px;
+      height: 25px;
       transform: translateY(-50%);
 
       img {
-        position: absolute;
-        left: 15px;
-        top: 50%;
-        transform: translateY(-50%);
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
     }
     input {
-      padding: 16px 50px 16px 45px;
+      padding: 16px 16px 16px 45px;
       background-color: #ffffff;
       border-radius: 7px;
       border: none;

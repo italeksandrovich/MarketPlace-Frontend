@@ -81,6 +81,7 @@ export default {
   background: #f9f9f9;
   transition: 0.4s;
   transform: translateX(-100%);
+  z-index: 100;
 
   &.open {
     transform: translateX(0);
