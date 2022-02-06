@@ -1,0 +1,92 @@
+
+// Root
+:root {
+  --headerDesktopHeight: 70px;
+  --headerPhoneHeight: 54px;
+}
+
+// Font
+$mainFont                : 'Mont', Helvetica, Arial, 'sans-serif';
+
+// Size
+$mainFontColor           : #010101;
+$mainFontSize            : 16px;
+$mainFontWeight          : 400;
+$mainLineHeight          : 1.6;
+
+$laptopWidth             : 1366px;
+$desktopWidth            : 1280px;
+$smDesktopWidth          : 1024px;
+$tableWidth              : 768px;
+$smTableWidth            : 640px;
+$phoneWidth              : 480px;
+$smPhoneWidth            : 320px;
+
+// Main color
+$colorPrimaryBlack       : rgba(12, 3, 46, 1);
+$colorPrimaryBlack-30    : rgba(12, 3, 46, .3);
+$colorPrimaryDark        : rgba(19, 6, 69, 1);
+$colorPrimaryDark-30     : rgba(19, 6, 69, .3);
+$colorPrimaryLight       : rgba(64, 36, 178, 1);
+$colorPrimaryLight-30    : rgba(64, 36, 178, .3);
+
+$colorPrimary            : rgba(68, 38, 185, 1);
+$colorPrimary-30         : rgba(68, 38, 185, .3);
+$colorBlue               : rgba(0, 71, 192, 1);
+$colorSuccess            : rgba(39, 171, 51, 1);
+$colorSuccess-30         : rgba(39, 171, 51, .3);
+$colorDanger             : rgba(255, 48, 53, 1);
+$colorDanger-30          : rgba(255, 48, 53, .3);
+//$color-warning           : #fed330;
+//$color-light             : #999999;
+//$color-purple            : #8854d0;
+
+// Black Colors
+$colorBlack-01:          rgba(0, 0, 0, .01);
+$colorBlack-02:          rgba(0, 0, 0, .02);
+$colorBlack-03:          rgba(0, 0, 0, .03);
+$colorBlack-04:          rgba(0, 0, 0, .04);
+$colorBlack-05:          rgba(0, 0, 0, .05);
+$colorBlack-06:          rgba(0, 0, 0, .06);
+$colorBlack-07:          rgba(0, 0, 0, .07);
+$colorBlack-08:          rgba(0, 0, 0, .08);
+$colorBlack-09:          rgba(0, 0, 0, .09);
+$colorBlack-10:          rgba(0, 0, 0, .1);
+$colorBlack-20:          rgba(0, 0, 0, .2);
+$colorBlack-30:          rgba(0, 0, 0, .3);
+$colorBlack-40:          rgba(0, 0, 0, .4);
+$colorBlack-50:          rgba(0, 0, 0, .5);
+$colorBlack-60:          rgba(0, 0, 0, .6);
+$colorBlack-70:          rgba(0, 0, 0, .7);
+$colorBlack-80:          rgba(0, 0, 0, .8);
+$colorBlack-90:          rgba(0, 0, 0, .9);
+$colorBlack-100:         rgba(0, 0, 0, 1);
+
+// White Colors
+$colorWhite-01:          rgba(255, 255, 255, .01);
+$colorWhite-02:          rgba(255, 255, 255, .02);
+$colorWhite-03:          rgba(255, 255, 255, .03);
+$colorWhite-04:          rgba(255, 255, 255, .04);
+$colorWhite-05:          rgba(255, 255, 255, .05);
+$colorWhite-06:          rgba(255, 255, 255, .06);
+$colorWhite-07:          rgba(255, 255, 255, .07);
+$colorWhite-08:          rgba(255, 255, 255, .08);
+$colorWhite-09:          rgba(255, 255, 255, .09);
+$colorWhite-10:          rgba(255, 255, 255, .1);
+$colorWhite-20:          rgba(255, 255, 255, .2);
+$colorWhite-30:          rgba(255, 255, 255, .3);
+$colorWhite-40:          rgba(255, 255, 255, .4);
+$colorWhite-50:          rgba(255, 255, 255, .5);
+$colorWhite-60:          rgba(255, 255, 255, .6);
+$colorWhite-70:          rgba(255, 255, 255, .7);
+$colorWhite-80:          rgba(255, 255, 255, .8);
+$colorWhite-90:          rgba(255, 255, 255, .9);
+$colorWhite-100:         rgba(255, 255, 255, 1);
+
+// Gradients
+$colorG1:                 linear-gradient(180deg, #4125B6 0%, #7357EC 100%);
+$colorG2:                 linear-gradient(270deg, rgba(64, 36, 178, 0) 0%, #AE9BFF 100%);
+$colorG3:                 linear-gradient(200deg, #4125b6 50%, #7357ec 100%);
+$colorBorderG1:           linear-gradient(180.61deg, #4024B2 0.52%, rgba(65, 37, 181, 0) 87.09%);
+$colorBorderG2:           linear-gradient(180deg, rgba(174, 155, 255, 0) 6.77%, #4024B2 100%);
+$colorTextG1:             -webkit-linear-gradient(82.06deg, #58F5F2 0%, #5F39FF 100%);

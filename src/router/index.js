@@ -1,24 +1,31 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "@/views/Home";
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     meta: {
-      layout: "main",
+      layout: 'main'
     },
-    component: Home,
+    component: () => import('@/views/Home')
   },
-];
+  {
+    path: '/partners-list',
+    name: 'PartnersList',
+    meta: {
+      layout: 'main'
+    },
+    component: () => import('@/views/PartnersList')
+  }
+]
 
 const router = new VueRouter({
-  mode: "history",
+  mode: 'history',
   base: process.env.BASE_URL,
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router

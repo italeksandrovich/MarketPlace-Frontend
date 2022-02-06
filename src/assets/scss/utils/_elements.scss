@@ -1,0 +1,403 @@
+
+// Animations
+@keyframes pulse {
+  to {
+    transform: scale(1.5);
+    background-color: #fff;
+    opacity: 0;
+  }
+}
+
+.pulse {
+  position: absolute;
+  background-color: $colorPrimaryLight;
+  border-radius: 50%;
+  animation: pulse .4s ease-out;
+  transform: scale(0);
+}
+
+// Text
+.textCenter {
+  text-align: center !important;
+}
+.textUppercase {
+  text-transform: uppercase !important;
+}
+.textHoverUnderline {
+  &:hover {
+    text-decoration: underline !important;
+  }
+}
+
+.textPrimary {
+  color: $colorPrimary !important;
+}
+.textSuccess {
+  color: $colorSuccess !important;
+}
+.textDanger {
+  color: $colorDanger !important;
+}
+
+// Link
+.more-link {
+  white-space: nowrap;
+
+  svg {
+    &:first-child {
+      margin-right: 4px;
+    }
+    &:last-child {
+      margin-left: 4px;
+    }
+  }
+}
+
+// Btn
+.btn {
+  position: relative;
+  width: fit-content;
+  min-width: 218px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #c4c4c4;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: rem(16px);
+  line-height: 24px;
+  text-align: center;
+  color: #fff;
+  height: 48px;
+  padding: 8px 24px;
+  overflow: hidden;
+  z-index: 0;
+  transition: .15s;
+
+  &:hover {
+    color: #fff;
+    opacity: .8;
+  }
+  &:active {
+    transform: translateY(1px);
+  }
+
+  &.disabled, &[disabled] {
+    pointer-events: none;
+    opacity: .6;
+  }
+
+  &.lg {
+    min-width: 285px;
+    height: 50px;
+  }
+
+  &.btnPrimary {
+    background: $colorG1;
+  }
+  &.btnOutlinePrimary {
+    background-color: $colorPrimaryLight-30;
+    border: 3px solid $colorPrimaryLight;
+  }
+}
+
+.btnPulse {
+  position: relative;
+  transition: .5s;
+  overflow: hidden;
+  z-index: 1;
+}
+
+// Dropdown
+.dropdown {
+  position: relative;
+
+  > a {
+    position: relative;
+    display: inline-block;
+    padding-right: 16px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      //width: 18px;
+      //height: 18px;
+      //background: url('../img/icons/arrow-down.svg') no-repeat contain/center;
+      border: 4px solid transparent;
+      border-top: 4px solid #fff;
+      top: 65%;
+      right: 0;
+      transform: translateY(-50%);
+    }
+
+    &.active {
+      &::after {
+        top: 30%;
+        transform: rotate(180deg);
+      }
+    }
+
+    &[data-position-arrow="top"] {
+      &::after {
+        top: 24%;
+        transform: rotate(180deg);
+      }
+      &.active {
+        &::after {
+          top: 65%;
+          transform: translateY(-50%) rotate(0);
+        }
+      }
+    }
+  }
+  .dropdownMenu {
+    display: none;
+    position: absolute;
+    background-color: $colorPrimaryLight-30;
+    border: 3px solid $colorPrimaryLight;
+    border-radius: 16px;
+    padding: 8px;
+    top: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+
+    &[data-position="top"] {
+      top: initial;
+      bottom: calc(100% + 8px);
+    }
+
+    &.active {
+      display: block;
+    }
+  }
+  .dropdownItem {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 4px 8px;
+  }
+}
+
+// Borders
+.border {
+  border: 1px solid $colorPrimaryLight;
+}
+
+.borderTop {
+  border-top: 1px solid $colorPrimaryLight;
+}
+.borderBottom {
+  border-bottom: 1px solid $colorPrimaryLight;
+}
+.borderRight {
+  border-right: 1px solid $colorPrimaryLight;
+}
+.borderLeft {
+  border-left: 1px solid $colorPrimaryLight;
+}
+
+// Gradients
+.borderGradientToBottom {
+  position: relative;
+  background-color: $colorPrimaryDark;
+  $border: 1px;
+  background-clip: padding-box;
+  border: $border solid transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -$border;
+    border-radius: inherit;
+    background: $colorBorderG1;
+  }
+
+  &.w2 {
+    $border: 2px;
+    border: $border solid transparent;
+
+    &::before {
+      margin: -$border;
+    }
+  }
+  &.w3 {
+    $border: 3px;
+    border: $border solid transparent;
+
+    &::before {
+      margin: -$border;
+    }
+  }
+  &.w4 {
+    $border: 4px;
+    border: $border solid transparent;
+
+    &::before {
+      margin: -$border;
+    }
+  }
+  &.w5 {
+    $border: 5px;
+    border: $border solid transparent;
+
+    &::before {
+      margin: -$border;
+    }
+  }
+}
+.borderGradientToTop {
+  position: relative;
+  background-color: $colorPrimaryDark;
+  $border: 1px;
+  background-clip: padding-box;
+  border: $border solid transparent;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: -1;
+    margin: -$border;
+    border-radius: inherit;
+    background: $colorBorderG2;
+  }
+
+  &.w2 {
+    $border: 2px;
+    border: $border solid transparent;
+
+    &::before {
+      margin: -$border;
+    }
+  }
+  &.w3 {
+    $border: 3px;
+    border: $border solid transparent;
+
+    &::before {
+      margin: -$border;
+    }
+  }
+  &.w4 {
+    $border: 4px;
+    border: $border solid transparent;
+
+    &::before {
+      margin: -$border;
+    }
+  }
+  &.w5 {
+    $border: 5px;
+    border: $border solid transparent;
+
+    &::before {
+      margin: -$border;
+    }
+  }
+}
+
+// Swiper
+.swiper-container {
+  position: relative;
+  overflow: hidden;
+}
+.swiper-button-prev, .swiper-button-next {
+  cursor: inherit;
+  @include size(48px);
+  border: 2px solid $colorPrimaryLight;
+  border-radius: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  transition: .15s;
+  z-index: 1;
+
+  &::after {
+    font-size: rem(16px);
+    color: #fff;
+  }
+
+  &:hover {
+    opacity: .8;
+  }
+
+  &.btnPulse {
+    position: absolute;
+  }
+}
+.swiper-button-prev {
+  left: -18px;
+  transform: translate(-100%, -50%);
+
+  &:active {
+    transform: translate(calc(-100% - 2px), -50%);
+  }
+}
+.swiper-button-next {
+  right: -18px;
+  transform: translate(100%, -50%);
+
+  &:active {
+    transform: translate(calc(100% + 2px), -50%);
+  }
+}
+
+
+@media screen and (max-width: $laptopWidth) {
+
+  .swiper-button-prev {
+    left: 16px;
+  }
+  .swiper-button-next {
+    right: 16px;
+  }
+
+}
+@media screen and (max-width: $desktopWidth) {
+
+  .swiper-button-prev {
+    left: -22px;
+  }
+  .swiper-button-next {
+    right: -18px;
+  }
+
+}
+@media screen and (max-width: $tableWidth) {
+
+  .btn {
+    min-width: 190px;
+    height: 45px;
+    font-size: rem(14px);
+
+    &.lg {
+      min-width: 265px;
+      height: 48px;
+    }
+  }
+
+  .swiper-button-prev, .swiper-button-next {
+    @include size(40px);
+
+    &::after {
+      font-size: rem(14px);
+    }
+  }
+  .swiper-button-prev {
+    left: -4px;
+  }
+  .swiper-button-next {
+    right: -4px;
+  }
+
+}
+@media screen and (max-width: $smTableWidth) {
+
+  .swiper-button-prev, .swiper-button-next {
+    display: none;
+  }
+
+}
