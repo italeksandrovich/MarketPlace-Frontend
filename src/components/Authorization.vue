@@ -27,7 +27,9 @@
       <button @click="$emit('changeStatus', 'reset-password')">
         Забыли пароль?
       </button>
-      <button @click="$emit('changeStatus', 'register')">Регистрация</button>
+      <button class="reg" @click="$emit('changeStatus', 'register')">
+        Регистрация
+      </button>
     </div>
   </div>
 </template>
@@ -114,6 +116,19 @@ export default {};
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    button {
+      color: #c4c4c4;
+      background: transparent;
+      font-family: Light;
+      font-size: 12px;
+      border: none;
+      outline: none;
+
+      &.reg {
+        color: #141313;
+      }
+    }
   }
 
   &-terms {

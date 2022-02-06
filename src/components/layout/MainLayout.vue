@@ -29,7 +29,12 @@
             @submited="submit"
             @changeStatus="status = $event"
           />
-          <Password v-if="status === 'reset-password'" />
+          <Password
+            v-if="status === 'reset-password'"
+            @receiveCode="status = $event"
+          />
+
+          <Confirm v-if="status === 'confirm'" />
         </div>
       </template>
 
@@ -45,11 +50,12 @@ import Popup from "@/components/Popup";
 import Authorization from "@/components/Authorization.vue";
 import Register from "@/components/Register.vue";
 import Password from "@/components/Password.vue";
+import Confirm from "@/components/Confirm.vue";
 import SideBar from "@/components/SideBar";
 
 export default {
   name: "main-layout",
-  components: { SideBar, Popup, Authorization, Register, Password },
+  components: { SideBar, Popup, Authorization, Register, Password, Confirm },
   data() {
     return {
       isOpen: false,
