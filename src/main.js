@@ -1,12 +1,14 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
-import "../src/assets/scss/main.scss";
-Vue.config.productionTip = false;
+import Vue from 'vue'
+import router from './router'
+import store from './store'
+import App from './App.vue'
+import vuetify from './plugins/vuetify'
+
+Vue.config.productionTip = false
 
 new Vue({
   router,
   store,
-  render: (h) => h(App),
-}).$mount("#app");
+  vuetify,
+  render: (h) => h(App)
+}).$mount('#app')

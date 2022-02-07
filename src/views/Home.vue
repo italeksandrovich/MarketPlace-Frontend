@@ -16,18 +16,18 @@
 </template>
 
 <script>
-export default {
-  name: "Home",
-  data() {
-    return {};
-  },
-  methods: {},
-};
+  export default {
+    name: 'Home',
+    data() {
+      return {}
+    },
+    methods: {}
+  }
 </script>
 
 <style lang="scss" scoped>
-.home {
-  display: flex;
-  width: 100%;
-}
+  .home {
+    display: flex;
+    width: 100%;
+  }
 </style>

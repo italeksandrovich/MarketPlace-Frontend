@@ -4,7 +4,7 @@
     <div class="popup-wrapper" :class="size">
       <div class="popup-close">
         <button class="popup-close__item" @click="$emit('input', false)">
-          <img src="@/assets/image/close.svg" alt="Закрыть" />
+          <img src="@/assets/image/icons/close.svg" alt="Закрыть" />
         </button>
       </div>
 

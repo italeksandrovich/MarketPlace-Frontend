@@ -3,7 +3,7 @@
     <h3 class="register-title">Регистрация в личный кабинет</h3>
     <form class="register-main" @submit.prevent="submit">
       <div class="register-icon">
-        <img src="@/assets/image/trophy.svg" alt="" />
+        <img src="@/assets/image/icons/trophy.svg" alt="" />
       </div>
       <input
         v-model="form.email"
@@ -12,12 +12,12 @@
         placeholder="Email для входа"
       />
       <div class="register-icon mail">
-        <img src="@/assets/image/trophy.svg" alt="" />
+        <img src="@/assets/image/icons/trophy.svg" alt="" />
       </div>
       <input v-model="form.phone" type="text" required placeholder="Телефон" />
       <div class="register-message">
         <div class="message-icon">
-          <img src="@/assets/image/info.svg" alt="" />
+          <img src="@/assets/image/icons/info.svg" alt="" />
         </div>
         <div class="message-send">
           <p>
@@ -214,7 +214,7 @@ export default {
       left: 0;
       width: 15px;
       height: 15px;
-      background-image: url("../assets/image/check.svg");
+      background-image: url("../assets/image/icons/check.svg");
       background-size: contain;
     }
   }

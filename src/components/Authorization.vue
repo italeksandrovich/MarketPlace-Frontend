@@ -9,15 +9,15 @@
     </div>
     <div class="auth-link">
       <div class="auth-icon">
-        <img src="@/assets/image/trophy.svg" alt="" />
+        <img src="@/assets/image/icons/trophy.svg" alt="" />
       </div>
       <input type="email" name="" id="" placeholder="Войти через Google" />
     </div>
     <div class="auth-button">
-      <button><img src="@/assets/image/trophy.svg" alt="" /></button>
-      <button><img src="@/assets/image/trophy.svg" alt="" /></button>
-      <button><img src="@/assets/image/trophy.svg" alt="" /></button>
-      <button><img src="@/assets/image/trophy.svg" alt="" /></button>
+      <button><img src="@/assets/image/icons/trophy.svg" alt="" /></button>
+      <button><img src="@/assets/image/icons/trophy.svg" alt="" /></button>
+      <button><img src="@/assets/image/icons/trophy.svg" alt="" /></button>
+      <button><img src="@/assets/image/icons/trophy.svg" alt="" /></button>
     </div>
     <div class="auth-footer">
       <p class="auth-terms">

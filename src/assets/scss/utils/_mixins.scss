@@ -1,0 +1,59 @@
+
+// px to rem
+@function rem($pixels, $context: $mainFontSize) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+
+// size to one line
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// glass effect
+@mixin glassEffect($blur) {
+  background: linear-gradient(86.16deg, rgba(255, 255, 255, .2) 11.14%, rgba(255, 255, 255, .035) 113.29%);
+  box-shadow: 0 1.1966px 29.915px rgba(69, 42, 124, .1);
+  backdrop-filter: blur($blur);
+}
+
+// absolute center
+@mixin centerAbsolute {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+// placeholder helper
+@mixin placeholder {
+  ::-webkit-input-placeholder {
+    @content;
+  }
+  :-moz-placeholder {
+    @content;
+  }
+  ::-moz-placeholder {
+    @content;
+  }
+  :-ms-input-placeholder {
+    @content;
+  }
+}
+
+// Default: For modern format fonts
+@mixin font-face( $font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: false) {
+  @font-face {
+    font-family: $font-family;
+    font-weight: $weight;
+    font-style: $style;
+
+    src: url('#{$file-path}.woff2') format('woff2');
+  }
+}
