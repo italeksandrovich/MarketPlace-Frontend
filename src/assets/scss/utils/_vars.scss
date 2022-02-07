@@ -1,15 +1,16 @@
 
 // Root
 :root {
-  --headerDesktopHeight: 70px;
-  --headerPhoneHeight: 54px;
+  //--headerDesktopHeight: 70px;
+  //--headerPhoneHeight: 54px;
 }
 
 // Font
 $mainFont                : 'Mont', Helvetica, Arial, 'sans-serif';
 
 // Size
-$mainFontColor           : #010101;
+$mainBackgroundColor     : #f9f9f9;
+$mainFontColor           : #141313;
 $mainFontSize            : 16px;
 $mainFontWeight          : 400;
 $mainLineHeight          : 1.6;
@@ -33,6 +34,7 @@ $colorPrimaryLight-30    : rgba(64, 36, 178, .3);
 $colorPrimary            : rgba(68, 38, 185, 1);
 $colorPrimary-30         : rgba(68, 38, 185, .3);
 $colorBlue               : rgba(0, 71, 192, 1);
+$colorBlue-30            : rgba(0, 71, 192, .3);
 $colorSuccess            : rgba(39, 171, 51, 1);
 $colorSuccess-30         : rgba(39, 171, 51, .3);
 $colorDanger             : rgba(255, 48, 53, 1);

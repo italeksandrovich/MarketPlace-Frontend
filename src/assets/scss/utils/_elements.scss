@@ -1,21 +1,4 @@
 
-// Animations
-@keyframes pulse {
-  to {
-    transform: scale(1.5);
-    background-color: #fff;
-    opacity: 0;
-  }
-}
-
-.pulse {
-  position: absolute;
-  background-color: $colorPrimaryLight;
-  border-radius: 50%;
-  animation: pulse .4s ease-out;
-  transform: scale(0);
-}
-
 // Text
 .textCenter {
   text-align: center !important;
@@ -93,11 +76,11 @@
   }
 
   &.btnPrimary {
-    background: $colorG1;
+    //background: $colorG1;
   }
   &.btnOutlinePrimary {
-    background-color: $colorPrimaryLight-30;
-    border: 3px solid $colorPrimaryLight;
+    //background-color: $colorPrimaryLight-30;
+    //border: 3px solid $colorPrimaryLight;
   }
 }
 
@@ -194,108 +177,6 @@
 }
 .borderLeft {
   border-left: 1px solid $colorPrimaryLight;
-}
-
-// Gradients
-.borderGradientToBottom {
-  position: relative;
-  background-color: $colorPrimaryDark;
-  $border: 1px;
-  background-clip: padding-box;
-  border: $border solid transparent;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    z-index: -1;
-    margin: -$border;
-    border-radius: inherit;
-    background: $colorBorderG1;
-  }
-
-  &.w2 {
-    $border: 2px;
-    border: $border solid transparent;
-
-    &::before {
-      margin: -$border;
-    }
-  }
-  &.w3 {
-    $border: 3px;
-    border: $border solid transparent;
-
-    &::before {
-      margin: -$border;
-    }
-  }
-  &.w4 {
-    $border: 4px;
-    border: $border solid transparent;
-
-    &::before {
-      margin: -$border;
-    }
-  }
-  &.w5 {
-    $border: 5px;
-    border: $border solid transparent;
-
-    &::before {
-      margin: -$border;
-    }
-  }
-}
-.borderGradientToTop {
-  position: relative;
-  background-color: $colorPrimaryDark;
-  $border: 1px;
-  background-clip: padding-box;
-  border: $border solid transparent;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; bottom: 0; left: 0;
-    z-index: -1;
-    margin: -$border;
-    border-radius: inherit;
-    background: $colorBorderG2;
-  }
-
-  &.w2 {
-    $border: 2px;
-    border: $border solid transparent;
-
-    &::before {
-      margin: -$border;
-    }
-  }
-  &.w3 {
-    $border: 3px;
-    border: $border solid transparent;
-
-    &::before {
-      margin: -$border;
-    }
-  }
-  &.w4 {
-    $border: 4px;
-    border: $border solid transparent;
-
-    &::before {
-      margin: -$border;
-    }
-  }
-  &.w5 {
-    $border: 5px;
-    border: $border solid transparent;
-
-    &::before {
-      margin: -$border;
-    }
-  }
 }
 
 // Swiper

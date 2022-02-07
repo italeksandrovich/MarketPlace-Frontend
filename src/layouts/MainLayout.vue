@@ -5,7 +5,7 @@
     </div>
     <div class="main-header" @click="isOpen = true">
       <button class="arrow">
-        <img src="@/assets/image/arrow.svg" alt="" />
+        <img src="@/assets/image/icons/arrow.svg" alt="" />
       </button>
     </div>
     <div class="main-page">

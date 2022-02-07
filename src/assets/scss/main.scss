@@ -18,6 +18,7 @@ body {
   font-weight: $mainFontWeight;
   line-height: $mainLineHeight;
   color: $mainFontColor;
+  background-color: $mainBackgroundColor;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
@@ -256,7 +257,7 @@ section, .section {
 
   body {
     font-size: rem(13px);
-    line-height: 1.7;
+    line-height: 1.2;
   }
 
   section, .section {

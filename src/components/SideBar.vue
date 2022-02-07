@@ -2,7 +2,7 @@
   <div :class="['sidebar', { open: value }]">
     <div class="sidebar-header">
       <button class="sidebar-close" @click="$emit('input', false)">
-        <img src="@/assets/image/close.svg" alt="" />
+        <img src="@/assets/image/icons/close.svg" alt="" />
       </button>
     </div>
 
@@ -24,25 +24,25 @@
       <div class="sidebar-actions-links">
         <div class="link">
           <div class="link-icon">
-            <img src="@/assets/image/home.svg" alt="" />
+            <img src="@/assets/image/icons/home.svg" alt="" />
           </div>
           <button class="link-name">Моя страница</button>
         </div>
         <div class="link">
           <div class="link-icon">
-            <img src="@/assets/image/home.svg" alt="" />
+            <img src="@/assets/image/icons/home.svg" alt="" />
           </div>
           <button class="link-name">Моя страница</button>
         </div>
         <div class="link">
           <div class="link-icon">
-            <img src="@/assets/image/home.svg" alt="" />
+            <img src="@/assets/image/icons/home.svg" alt="" />
           </div>
           <button class="link-name">Моя страница</button>
         </div>
         <div class="link">
           <div class="link-icon">
-            <img src="@/assets/image/home.svg" alt="" />
+            <img src="@/assets/image/icons/home.svg" alt="" />
           </div>
           <button class="link-name">Моя страница</button>
         </div>
