@@ -17,13 +17,20 @@
         :load-recaptcha-script="true"
         sitekey="6LfmDFceAAAAANN9yFUJDus0dpPab4GLNARhnS9A"
         style="
-          transform: scale(0.9);
-          -webkit-transform: scale(0.9);
+          transform: scale(0.85);
+          -webkit-transform: scale(0.85);
           transform-origin: 0 0;
           -webkit-transform-origin: 0 0;
         "
       >
       </vue-recaptcha>
+      <button
+        class="receive"
+        type="submit"
+        @click="$emit('receiveCode', 'confirm')"
+      >
+        Получить код
+      </button>
     </div>
   </div>
 </template>
@@ -51,8 +58,6 @@ export default {
 
 <style lang="scss" scoped>
 .password {
-  background-color: #f9f9f9;
-  padding: 16px 16px 45px 16px;
   position: relative;
   max-width: 300px;
   height: 60vh;
@@ -78,6 +83,9 @@ export default {
   }
 
   &-main {
+    display: flex;
+    flex-direction: column;
+
     input {
       padding: 17px 100px 17px 15px;
       margin-bottom: 5px;
@@ -88,6 +96,30 @@ export default {
       border-radius: 8px;
       border: none;
       outline: none;
+    }
+
+    .receive {
+      color: #ffffff;
+      background: #c4c4c4;
+      font-family: "Heavy";
+      font-size: 11px;
+      font-weight: 400;
+      text-align: center;
+      padding: 23px 50px;
+      margin-bottom: 12px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+
+      &:hover {
+        color: #ffffff;
+        background: #19a0fc;
+      }
+
+      &:disabled {
+        background: #c4c4c4;
+        cursor: not-allowed;
+      }
     }
   }
 }

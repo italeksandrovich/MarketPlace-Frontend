@@ -24,7 +24,7 @@
             На этот номер вы получите SMS с кодом подтверждения и информацию о
             записи
           </p>
-          <a href="#">Отправить еще раз(2) через 30 сек </a>
+          <button>Отправить еще раз(2) через 30 сек</button>
         </div>
       </div>
       <button class="submit" type="submit" :disabled="invalid">
@@ -138,9 +138,13 @@ export default {
       font-size: 10px;
     }
 
-    a {
+    button {
+      color: #19a0fc;
       font-family: Light;
       font-size: 10px;
+      background: transparent;
+      border: none;
+      outline: none;
     }
   }
 
@@ -219,7 +223,14 @@ export default {
     color: #c4c4c4;
     font-family: Light;
     font-size: 10px;
-    text-decoration: none;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #141313;
+    }
   }
 }
 </style>
