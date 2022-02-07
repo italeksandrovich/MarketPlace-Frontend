@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home";
+import PartnerPage from "@/views/PartnerPage";
 
 Vue.use(VueRouter);
 
@@ -12,6 +13,14 @@ const routes = [
       layout: "main",
     },
     component: Home,
+  },
+  {
+    path: "/partner-page",
+    name: "PartnerPage",
+    meta: {
+      layout: "main",
+    },
+    component: PartnerPage,
   },
 ];
 

@@ -200,7 +200,9 @@ export default {
     display: flex;
     flex-direction: column;
     margin-top: 40px;
+    cursor: pointer;
   }
+
   .link {
     display: flex;
     align-items: center;

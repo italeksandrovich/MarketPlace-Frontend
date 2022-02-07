@@ -114,7 +114,6 @@ export default {
       right: 0;
       left: 0;
       background: #fff;
-      box-shadow: 0 10px 5px rgba($color: #000000, $alpha: 0.3);
       padding: 15px;
     }
 
