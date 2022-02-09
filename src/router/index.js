@@ -1,49 +1,41 @@
-<<<<<<< HEAD
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home";
 import PartnerPage from "@/views/PartnerPage";
-=======
-import Vue from 'vue'
-import VueRouter from 'vue-router'
->>>>>>> 07523970dec17ac8a731c2b5f4bf45993550ea00
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
+    path: "/",
+    name: "Home",
     meta: {
-      layout: 'main'
+      layout: "main",
     },
-    component: () => import('@/views/Home')
+    component: Home,
   },
   {
-<<<<<<< HEAD
-    path: "/partner-page",
+    path: "/partners-page",
     name: "PartnerPage",
     meta: {
       layout: "main",
     },
     component: PartnerPage,
   },
-];
-=======
-    path: '/partners-list',
-    name: 'PartnersList',
+  {
+    path: "/partners-list",
+    name: "PartnersList",
     meta: {
-      layout: 'main'
+      layout: "main",
     },
-    component: () => import('@/views/PartnersList')
-  }
-]
->>>>>>> 07523970dec17ac8a731c2b5f4bf45993550ea00
+    component: () => import("@/views/PartnersList"),
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

@@ -8,7 +8,7 @@
       </div> -->
       <div class="client-info">
         <div class="client-img">
-          <img src="@/assets/image/avatar.svg" alt="" />
+          <img src="@/assets/image/icons/iconforphoto.png" alt="" />
         </div>
         <div class="client-name">
           <h3 class="name">Имя Фамилия</h3>
@@ -63,12 +63,48 @@
           </button>
         </div>
         <div class="client-feedback">
-          <Slider
-            v-for="(t, ix) in comment"
-            :key="ix"
-            :name="t.name"
-            :text="t.text"
-          />
+          <swiper ref="mySwiper" :options="swiperOptions">
+            <swiper-slide v-for="item in 5" :key="item">
+              <div class="feedbacks">
+                <h4 class="feedbacks-title">Имя</h4>
+                <RatingStar
+                  v-for="rating in ratings"
+                  :key="rating"
+                  :value="rating"
+                  :name="name"
+                  :disabled="disabled"
+                />
+                <p class="feedbacks-text">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Tempore libero iure, id consectetur illo dignissimos eum
+                  pariatur debitis modi expedita
+                  <span class="read-less" v-if="!readMore">...</span>
+                  <span class="read-more" v-if="readMore">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                    Dolores sit fugiat omnis aliquid eum distinctio!</span
+                  >
+                  <button
+                    class="feedbacks-more"
+                    @click="showMore"
+                    v-if="!readMore"
+                  >
+                    Читать больше
+                  </button>
+                  <button
+                    class="feedbacks-less"
+                    @click="showLess"
+                    v-if="readMore"
+                  >
+                    Скрыть
+                  </button>
+                </p>
+              </div>
+            </swiper-slide>
+            <div class="swiper-pagination" slot="pagination"></div>
+          </swiper>
+        </div>
+        <div class="client-map">
+          <YandexMap />
         </div>
       </div>
     </div>
@@ -76,12 +112,26 @@
 </template>
 
 <script>
-import Slider from "@/components/client/Slider.vue";
+import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
+import "swiper/css/swiper.css";
+import RatingStar from "@/components/client/RatingStar";
+import YandexMap from "@/components/client/YandexMap";
+
 export default {
   name: "client",
-  components: { Slider },
+  components: {
+    Swiper,
+    SwiperSlide,
+    RatingStar,
+    YandexMap,
+  },
+  directives: {
+    swiper: directive,
+  },
+
   data() {
     return {
+      readMore: false,
       comment: [
         {
           name: "Имя",
@@ -100,13 +150,42 @@ export default {
           text: "Разнообразный и богатый опыт говоринты на роль ключевых факторов.Разнообразный и богатый опыт говоринты на роль ключевых факторов.Разнообразный и богатый опыт говоринты на роль ключевых факторов. ",
         },
       ],
+      swiperOptions: {
+        pagination: {
+          el: ".swiper-pagination",
+          autoHeight: false,
+          effect: "cards",
+        },
+      },
+      temp_value: null,
+      ratings: [1, 2, 3, 4, 5],
     };
+  },
+  methods: {
+    showMore() {
+      this.readMore = true;
+    },
+    showLess() {
+      this.readMore = false;
+    },
+  },
+
+  computed: {
+    swiper() {
+      return this.$refs.mySwiper.$swiper;
+    },
+  },
+  mounted() {
+    console.log("Current Swiper instance object", this.swiper);
+    this.swiper.slideTo(3, 1000, false);
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .client {
+  background: #ffffff;
+
   &-info {
     display: flex;
     flex-direction: column;
@@ -120,9 +199,12 @@ export default {
   }
 
   &-img {
-    width: 100px;
-    height: 100px;
+    width: 55px;
+    height: 55px;
+    padding: 15px;
     margin-bottom: 50px;
+    background: #c9c9c9;
+    border-radius: 8px;
 
     img {
       width: 100%;
@@ -137,14 +219,14 @@ export default {
 
     .name {
       color: #141313;
-      font-family: "Light";
+      font-weight: 200;
       font-size: 16px;
       margin-bottom: 10px;
     }
 
     .specialization {
       color: #141313;
-      font-family: "Heavy";
+      font-weight: 700;
       font-size: 16px;
     }
   }
@@ -172,7 +254,6 @@ export default {
 
     p {
       color: #000000;
-      font-family: Light;
       font-size: 12px;
     }
 
@@ -191,7 +272,6 @@ export default {
 
     p {
       color: #000000;
-      font-family: Light;
       font-size: 12px;
       text-align: center;
     }
@@ -218,7 +298,6 @@ export default {
 
         span {
           color: #ffffff;
-          font-family: "Heavy";
           font-size: 12px;
         }
       }
@@ -227,9 +306,29 @@ export default {
     span {
       margin-top: 5px;
       color: #141313;
-      font-family: "Light";
       font-size: 12px;
       margin-left: 5px;
+    }
+  }
+  .feedbacks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 17px 30px 30px;
+
+    &-title {
+      color: #000000;
+      font-size: 12px;
+      font-weight: 400;
+    }
+
+    button {
+      color: #19a0fc;
+      background: transparent;
+      font-size: 14px;
+      font-weight: 500;
+      border: none;
+      cursor: pointer;
     }
   }
 }

@@ -30,14 +30,12 @@ export default {
 
   &-title {
     color: #141313;
-    font-family: Heavy;
     font-size: 12px;
     text-align: center;
   }
 
   &-text {
     color: #141313;
-    font-family: Light;
     font-size: 12px;
     font-weight: normal;
     text-align: center;
@@ -47,11 +45,11 @@ export default {
   &-main {
     display: flex;
     flex-direction: column;
+
     input {
       padding: 17px 17px 15px;
       margin-bottom: 5px;
       color: #141313;
-      font-family: "Light";
       font-size: 12px;
       font-weight: 400;
       border-radius: 8px;
@@ -63,7 +61,6 @@ export default {
   &-button {
     color: #ffffff;
     background: #c4c4c4;
-    font-family: "Heavy";
     font-size: 11px;
     font-weight: 400;
     text-align: center;

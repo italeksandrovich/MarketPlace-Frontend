@@ -52,14 +52,12 @@ export default {};
 
   &-title {
     color: #141313;
-    font-family: Heavy;
     font-size: 12px;
     text-align: center;
   }
 
   &-text {
     color: #141313;
-    font-family: Light;
     font-size: 12px;
     font-weight: normal;
     text-align: center;
@@ -120,10 +118,10 @@ export default {};
     button {
       color: #c4c4c4;
       background: transparent;
-      font-family: Light;
       font-size: 12px;
       border: none;
       outline: none;
+      cursor: pointer;
 
       &.reg {
         color: #141313;
@@ -132,7 +130,6 @@ export default {};
   }
 
   &-terms {
-    font-family: "Light";
     font-size: 8px;
     font-weight: 400;
     letter-spacing: normal;
@@ -144,7 +141,6 @@ export default {};
 
   .reset {
     color: #c4c4c4;
-    font-family: "Light";
     font-size: 10px;
     font-weight: 400;
     text-align: center;

@@ -85,7 +85,6 @@ export default {
 
   &-title {
     color: #141313;
-    font-family: Heavy;
     font-size: 12px;
     text-align: center;
     margin: 16px 0 35px 0;
@@ -134,13 +133,11 @@ export default {
     }
 
     p {
-      font-family: Light;
       font-size: 10px;
     }
 
     button {
       color: #19a0fc;
-      font-family: Light;
       font-size: 10px;
       background: transparent;
       border: none;
@@ -151,7 +148,6 @@ export default {
   .submit {
     color: #ffffff;
     background: #c4c4c4;
-    font-family: "Heavy";
     font-size: 11px;
     font-weight: 400;
     text-align: center;
@@ -177,7 +173,7 @@ export default {
     align-items: center;
 
     label {
-      font-family: Light;
+      font-weight: 200;
       font-size: 10px;
     }
 
@@ -221,7 +217,7 @@ export default {
 
   .enter {
     color: #c4c4c4;
-    font-family: Light;
+    font-weight: 200;
     font-size: 10px;
     background: transparent;
     border: none;
