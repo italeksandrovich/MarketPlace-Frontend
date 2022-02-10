@@ -106,7 +106,7 @@ export default {
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
-
+  background-color: #fff;
   .main {
     &-header {
       position: fixed;
@@ -115,10 +115,11 @@ export default {
       left: 0;
       background: #ffffff;
       padding: 15px;
+      z-index: 3;
     }
 
     &-page {
-      padding: 80px 15px 15px;
+      padding: 80px 10px 15px;
       flex: 1;
       overflow: hidden auto;
     }
