@@ -116,8 +116,6 @@ export default {
   },
 };
 </script>
-methods: { toggle() { this.isActive = this.isActive ? false : true;
-console.log(this.toggle); }, },
 
 <style lang="scss" scoped>
 .sidebar {
@@ -172,12 +170,14 @@ console.log(this.toggle); }, },
     flex-direction: column;
     align-items: center;
   }
-  &-actions__item.btn {
-    margin-bottom: 10px;
-    cursor: pointer;
-
+  &-actions__item {
     &:hover {
       background: #19a0fc;
+    }
+
+    &.btn {
+      margin-bottom: 10px;
+      cursor: pointer;
     }
   }
 
@@ -195,7 +195,7 @@ console.log(this.toggle); }, },
     cursor: pointer;
 
     &:hover,
-    .active {
+    &.active {
       background: #19a0fc;
 
       svg {

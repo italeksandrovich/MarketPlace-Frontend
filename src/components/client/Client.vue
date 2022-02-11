@@ -1,21 +1,23 @@
 <template>
   <div class="client">
     <div class="client-top">
-      <!-- <div class="client-arrow">
+      <div class="client-arrow">
         <button class="arrow">
-          <img src="@/assets/image/arrow.svg" alt="" />
+          <img src="@/assets/image/icons/arrow-left.svg" alt="" />
         </button>
-      </div> -->
+      </div>
       <div class="client-info">
-        <div class="client-img">
-          <img src="@/assets/image/icons/iconforphoto.png" alt="" />
+        <div class="client-img-wrapper">
+          <div class="client-img">
+            <img src="@/assets/image/icons/iconforphoto.png" alt="" />
+          </div>
         </div>
         <div class="client-name">
           <h3 class="name">Имя Фамилия</h3>
           <p class="specialization">Специализация</p>
         </div>
       </div>
-      <div class="client-dashboard">
+      <div class="client-dashboard" @click="setStatus(true)">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
@@ -53,26 +55,27 @@
       </div>
       <div class="client-general">
         <div class="client-all-infos">
-          <button>
+          <button @click="showInfo">
             <img src="@/assets/image/icon.svg" alt="" />
             <span>Описание</span>
           </button>
-          <button>
+          <button @click="showFeedback">
             <img src="@/assets/image/icon.svg" alt="" />
             <span>Отзывы</span>
           </button>
         </div>
-        <div class="client-feedback">
+        <div class="master-general-info" v-if="selected">
+          <p>здесь будет описание мастера</p>
+        </div>
+        <div class="client-feedback" v-if="!selected">
           <swiper ref="mySwiper" :options="swiperOptions">
-            <swiper-slide v-for="item in 5" :key="item">
+            <swiper-slide v-for="rating in ratings" :key="rating.name">
               <div class="feedbacks">
                 <h4 class="feedbacks-title">Имя</h4>
                 <RatingStar
-                  v-for="rating in ratings"
-                  :key="rating"
-                  :value="rating"
-                  :name="name"
-                  :disabled="disabled"
+                  v-model="rating.value"
+                  :name="rating.name"
+                  :disabled="rating.disabled"
                 />
                 <p class="feedbacks-text">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -104,7 +107,30 @@
           </swiper>
         </div>
         <div class="client-map">
-          <YandexMap />
+          <YandexMap v-model="activeCard" :adresses="cards" />
+        </div>
+        <div class="client-cards" v-if="cards.length">
+          <ClientCard :item="cards[activeCard]" />
+        </div>
+        <div class="client-need-info">
+          <swiper ref="mySwiper" :options="swiperOptions">
+            <swiper-slide v-for="rating in ratings" :key="rating.name">
+              <div class="masters-button-wrapper">
+                <button class="masters-work">
+                  <img src="@/assets/image/icons/trophy.svg" alt="" />
+                  <span> Работы</span>
+                </button>
+                <button class="masters-work">
+                  <img src="@/assets/image/icons/girl.svg" alt="" />
+                  <span> Рабочее место</span>
+                </button>
+                <button class="masters-work">
+                  <img src="@/assets/image/icons/photocam.svg" alt="" />
+                  <span> Все фото</span>
+                </button>
+              </div>
+            </swiper-slide>
+          </swiper>
         </div>
       </div>
     </div>
@@ -116,6 +142,8 @@ import { Swiper, SwiperSlide, directive } from "vue-awesome-swiper";
 import "swiper/css/swiper.css";
 import RatingStar from "@/components/client/RatingStar";
 import YandexMap from "@/components/client/YandexMap";
+import ClientCard from "@/components/client/ClientCard.vue";
+import { mapMutations } from "vuex";
 
 export default {
   name: "client",
@@ -124,6 +152,7 @@ export default {
     SwiperSlide,
     RatingStar,
     YandexMap,
+    ClientCard,
   },
   directives: {
     swiper: directive,
@@ -131,7 +160,9 @@ export default {
 
   data() {
     return {
+      selected: false,
       readMore: false,
+      activeCard: 0,
       comment: [
         {
           name: "Имя",
@@ -151,22 +182,69 @@ export default {
         },
       ],
       swiperOptions: {
+        dots: false,
         pagination: {
           el: ".swiper-pagination",
           autoHeight: false,
           effect: "cards",
         },
       },
-      temp_value: null,
-      ratings: [1, 2, 3, 4, 5],
+      ratings: [
+        {
+          value: 1,
+          name: "card_1",
+          disabled: false,
+        },
+        {
+          value: 1,
+          name: "card_2",
+          disabled: false,
+        },
+        {
+          value: 1,
+          name: "card_3",
+          disabled: false,
+        },
+        {
+          value: 1,
+          name: "card_4",
+          disabled: false,
+        },
+      ],
+      cards: [
+        {
+          imgUrl: require("@/assets/image/icons/iconforphoto.png"),
+          name: "ooo beauty",
+          adresses: ["ddf", "iii", "dkf"],
+          coords: [55.783654, 37.384519],
+          subway: ["ffvfvf", "skjk", "ksuhdsu"],
+        },
+        {
+          imgUrl: require("@/assets/image/icons/iconforphoto.png"),
+          name: "hair salon",
+          adresses: ["ddf", "kejdj", "ekhuf"],
+          coords: [55.683659, 37.584515],
+          subway: ["sssccs", "shgdj", "sljjd"],
+        },
+      ],
     };
   },
   methods: {
+    ...mapMutations({
+      setStatus: "SET_SIDEBAR_STATUS",
+    }),
     showMore() {
       this.readMore = true;
     },
     showLess() {
       this.readMore = false;
+    },
+
+    showInfo() {
+      this.selected = true;
+    },
+    showFeedback() {
+      this.selected = false;
     },
   },
 
@@ -186,6 +264,37 @@ export default {
 .client {
   background: #ffffff;
 
+  &-top {
+    display: flex;
+    gap: 50px;
+  }
+
+  .arrow {
+    width: 32px;
+    height: 32px;
+    padding: 7px 9px 7px 7px;
+    border-radius: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-img-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #c9c9c9;
+    width: 113px;
+    height: 113px;
+    margin-bottom: 50px;
+    border-radius: 20px;
+  }
+
   &-info {
     display: flex;
     flex-direction: column;
@@ -199,16 +308,13 @@ export default {
   }
 
   &-img {
-    width: 55px;
-    height: 55px;
-    padding: 15px;
-    margin-bottom: 50px;
-    background: #c9c9c9;
-    border-radius: 8px;
+    width: 50px;
+    height: 45px;
 
     img {
       width: 100%;
       height: 100%;
+      overflow: hidden;
     }
   }
 
@@ -231,6 +337,10 @@ export default {
     }
   }
 
+  &-dashboard {
+    cursor: pointer;
+  }
+
   &-main-info {
     display: flex;
     flex-direction: column;
@@ -241,16 +351,21 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
 
   &-rate {
     display: flex;
     align-items: center;
+    flex: 1;
     background: #f9f9f9;
     border-radius: 10px;
     padding: 20px 10px;
+    white-space: nowrap;
+
+    &:not(:nth-child(odd)) {
+      margin: 10px;
+    }
 
     p {
       color: #000000;
@@ -272,7 +387,7 @@ export default {
 
     p {
       color: #000000;
-      font-size: 12px;
+      font-size: 14px;
       text-align: center;
     }
   }
@@ -281,13 +396,14 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+    gap: 8px;
+    margin-bottom: 8px;
 
     button {
       display: flex;
       align-items: center;
       flex: 1;
-      padding: 20px;
+      padding: 13px 20px 13px 20px;
       border-radius: 10px;
       border: none;
       outline: none;
@@ -295,6 +411,7 @@ export default {
 
       &:hover {
         background: #19a0fc;
+        font-weight: 600;
 
         span {
           color: #ffffff;
@@ -310,11 +427,18 @@ export default {
       margin-left: 5px;
     }
   }
+
+  &-feedback {
+    margin-bottom: 73px;
+  }
+
   .feedbacks {
+    background: #f9f9f9;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 17px 30px 30px;
+    border-radius: 10px;
 
     &-title {
       color: #000000;
@@ -326,9 +450,40 @@ export default {
       color: #19a0fc;
       background: transparent;
       font-size: 14px;
-      font-weight: 500;
+      font-weight: 800;
       border: none;
       cursor: pointer;
+    }
+  }
+
+  .master-general-info {
+    background: #f9f9f9;
+    padding: 17px 30px 30px;
+    margin-bottom: 73px;
+    border-radius: 10px;
+  }
+
+  .masters-button-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .masters-work {
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    border-radius: 10px;
+    white-space: nowrap;
+
+    &:not(:nth-child(odd)) {
+      margin: 8px;
+    }
+
+    span {
+      color: #141313;
+      font-size: 12px;
+      font-weight: 400;
     }
   }
 }

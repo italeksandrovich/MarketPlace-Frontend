@@ -1,12 +1,6 @@
 <template>
   <div class="map">
-    <yandex-map :settings="settings" :coords="coords" zoom="10">
-      <ymap-marker
-        :coords="coords"
-        marker-id="123123"
-        marker-type="placemark"
-      />
-    </yandex-map>
+    <div class="map-inner" style="width: 600px; height: 400px" ref="map"></div>
   </div>
 </template>
 
@@ -19,36 +13,66 @@ export default {
     yandexMap,
     ymapMarker,
   },
+
+  props: {
+    adresses: {
+      type: Array,
+      default: () => [],
+    },
+    value: {
+      type: Number,
+      default: 0,
+    },
+  },
+
   data() {
     return {
-      settings: {
-        apiKey: "eb2226f8-c096-4458-b74d-f53c20a25e58",
-        lang: "ru_RU",
-        coordorder: "latlong",
-        enterprise: false,
-        version: "2.1",
-      },
-      coords: [54.82896654088406, 39.831893822753904],
-      placemarks: [
-        {
-          coords: [54.82896654088406, 39.831893822753904],
-          properties: {
-            balloonContentBody: "asdfd",
-            balloonContentFooter: "1",
-            balloonContentHeader: "1",
-          },
-          clusterName: "1",
-          markerId: "1",
-        },
-      ],
+      map: null,
+      myPlacemarks: [],
+      myPlacemark: null,
+      balloonLayout: null,
+      balloonContentLayout: null,
     };
+  },
+  mounted() {
+    var self = this;
+    window.ymaps.ready(() => {
+      this.init();
+      console.log(this.myPlacemarks);
+      this.myPlacemarks.forEach((mark, index) => {
+        this.map.geoObjects.add(mark);
+        mark.events.add(["click"], function (e) {
+          self.$emit("input", index);
+        });
+      });
+    });
+  },
+  beforeDestroy() {
+    if (this.map) {
+      this.map.destroy();
+    }
+  },
+  methods: {
+    init() {
+      this.map = new window.ymaps.Map(this.$refs["map"], {
+        center: [55.883655, 37.484518],
+        zoom: 8,
+      });
+      this.myPlacemarks = this.adresses.map(({ coords, name }) => {
+        return new window.ymaps.Placemark(coords, {
+          hintContent: name,
+        });
+      });
+    },
   },
 };
 </script>
 
 <style lang="scss">
 .map {
-  height: 400px;
+  height: 300px;
+  border-radius: 15px;
+  overflow: hidden;
 
   .ymap-container {
     height: 100%;

@@ -1,16 +1,18 @@
 <template>
   <div class="star-rating">
     <label
-      class="star-rating__star"
-      v-for="rating in ratings"
-      :key="rating"
-      :class="{
-        'is-selected': value >= rating && value != null,
-        'is-disabled': disabled,
-      }"
-      v-on:click="set(rating)"
-      v-on:mouseover="starOver(rating)"
-      v-on:mouseout="starOut"
+      v-for="(rating, index) in ratings"
+      :key="index"
+      :class="[
+        'star-rating__star',
+        {
+          'is-selected': value >= rating,
+          'is-disabled': disabled,
+        },
+      ]"
+      @click="set(rating)"
+      @mouseover="starOver(rating)"
+      @mouseout="starOut"
     >
       <input
         class="star-rating star-rating__checkbox"
@@ -30,37 +32,44 @@ export default {
   props: {
     name: {
       type: String,
+      required: true,
     },
-    value: null,
-    id: {
-      type: String,
+    value: {
+      type: Number,
+      required: true,
     },
     disabled: {
       type: Boolean,
+      default: false,
     },
     required: {
       type: Boolean,
+      default: false,
     },
   },
   data() {
-    return {};
+    return {
+      ratings: [1, 2, 3, 4, 5],
+      tempValue: null,
+    };
   },
   methods: {
     starOver(index) {
       if (!this.disabled) {
-        this.temp_value = this.value;
+        this.tempValue = this.value;
         return this.$emit("input", index);
       }
     },
     set(value) {
       if (!this.disabled) {
-        this.temp_value = value;
+        this.tempValue = value;
+
         return (this.value = value);
       }
     },
     starOut() {
       if (!this.disabled) {
-        return this.$emit("input", this.temp_value);
+        return this.$emit("input", this.tempValue);
       }
     },
   },

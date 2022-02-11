@@ -18,7 +18,7 @@ const routes = [
     path: "/partners-page",
     name: "PartnerPage",
     meta: {
-      layout: "main",
+      layout: "empty",
     },
     component: PartnerPage,
   },
