@@ -2,26 +2,38 @@
   <div class="user-info">
     <div class="user-info__header">
       <div class="user-info__img">
-            <span class="verified">
-              <img src="@/assets/image/icons/iconpartnerraiting.png" alt="">
-            </span>
-        <img src="@/assets/image/icons/iconforphoto.png" alt="">
+        <span class="verified">
+          <img src="@/assets/image/icons/iconpartnerraiting.png" alt="" />
+        </span>
+        <img src="@/assets/image/icons/iconforphoto.png" alt="" />
       </div>
       <div class="user-info__content">
-        <h5>Имя <br> Фамилия</h5>
+        <h5>
+          Имя <br />
+          Фамилия
+        </h5>
         <p>Терапевт, психиатр, хирург невролог</p>
       </div>
     </div>
     <div class="user-info__body">
       <ul>
         <li>
-          <div class="textCenter">Рейтинг <br> 4.8</div>
+          <div class="textCenter">
+            Рейтинг <br />
+            4.8
+          </div>
         </li>
         <li>
-          <div class="textCenter">Отзывы <br> 1000</div>
+          <div class="textCenter">
+            Отзывы <br />
+            1000
+          </div>
         </li>
         <li>
-          <div class="textCenter">Стаж <br> 2 г.</div>
+          <div class="textCenter">
+            Стаж <br />
+            2 г.
+          </div>
         </li>
       </ul>
     </div>
@@ -30,9 +42,11 @@
     </div>
     <div class="user-tabs__header">
       <div class="user-tabs user-tabs__active">
-        <img src="@/assets/image/icon.svg" alt="icon"/>Компания 1
+        <img src="@/assets/image/icon.svg" alt="icon" />Компания 1
       </div>
-      <div class="user-tabs"><img src="@/assets/image/icon.svg" alt="icon"/>Компания 2</div>
+      <div class="user-tabs">
+        <img src="@/assets/image/icon.svg" alt="icon" />Компания 2
+      </div>
     </div>
     <div class="user-tabs__body">
       <div class="user-tabs__list">
@@ -43,10 +57,15 @@
           <ul>
             <li>Первичный осмотр <span>Стоимость: 590₽ </span></li>
             <li>Услуга <span>Стоимость: 0₽ </span></li>
-            <li class="w-100"><b>Адрес</b> <span>Россия, г. Москва. Ул. 2-я Кабельная. Дом 2. Строение 25, 26, 37.. Офис №308 </span>
+            <li class="w-100">
+              <b>Адрес</b>
+              <span
+                >Россия, г. Москва. Ул. 2-я Кабельная. Дом 2. Строение 25, 26,
+                37.. Офис №308
+              </span>
             </li>
-            <li>Авиамоторная <span>310 м<</span></li>
-            <li>Авиамоторная <span>310 м<</span></li>
+            <li>Авиамоторная <span>310 м</span></li>
+            <li>Авиамоторная <span>310 м</span></li>
           </ul>
         </div>
         <!--        <div class="user-tabs__item">-->
@@ -66,15 +85,12 @@
     </div>
 
     <div class="user-info__text">
-      <img src="@/assets/image/icon.svg" alt="icon"/>
-      Выберите желаемое время и
-      ожидайте подтверждения
+      <img src="@/assets/image/icon.svg" alt="icon" />
+      Выберите желаемое время и ожидайте подтверждения
     </div>
 
     <div class="tabs__header">
-      <div class="tabs tabs__active">
-        Среда, 26
-      </div>
+      <div class="tabs tabs__active">Среда, 26</div>
       <div class="tabs">Среда, 26</div>
       <div class="tabs">Среда, 26</div>
       <div class="tabs">Среда, 26</div>
@@ -97,14 +113,13 @@
 </template>
 
 <script>
-
 export default {
-  name: "PartnersCart"
-}
+  name: "PartnersCart",
+};
 </script>
 
 <style lang="scss" scoped>
-.mb-0{
+.mb-0 {
   margin-bottom: 0 !important;
 }
 .user-info {
@@ -279,7 +294,7 @@ export default {
         position: relative;
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           width: 4px;
           height: 4px;
@@ -318,7 +333,7 @@ export default {
   white-space: nowrap;
   font-size: 12px;
   line-height: 1.2;
-  &-min{
+  &-min {
     padding: 5px 12px;
   }
   &__active {

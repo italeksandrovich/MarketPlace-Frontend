@@ -2,9 +2,9 @@
   <div class="client">
     <div class="client-top">
       <div class="client-arrow">
-        <button class="arrow">
+        <router-link to="/partners-list" class="arrow">
           <img src="@/assets/image/icons/arrow-left.svg" alt="" />
-        </button>
+        </router-link>
       </div>
       <div class="client-info">
         <div class="client-img-wrapper">
@@ -113,24 +113,42 @@
           <ClientCard :item="cards[activeCard]" />
         </div>
         <div class="client-need-info">
-          <swiper ref="mySwiper" :options="swiperOptions">
-            <swiper-slide v-for="rating in ratings" :key="rating.name">
-              <div class="masters-button-wrapper">
+          <swiper ref="mySwiper" :options="buttonSwiper">
+            <swiper-slide>
                 <button class="masters-work">
                   <img src="@/assets/image/icons/trophy.svg" alt="" />
                   <span> Работы</span>
                 </button>
+            </swiper-slide>
+            <swiper-slide>
                 <button class="masters-work">
                   <img src="@/assets/image/icons/girl.svg" alt="" />
                   <span> Рабочее место</span>
                 </button>
+            </swiper-slide>
+            <swiper-slide>
                 <button class="masters-work">
                   <img src="@/assets/image/icons/photocam.svg" alt="" />
                   <span> Все фото</span>
                 </button>
-              </div>
             </swiper-slide>
           </swiper>
+          <div class="client-need-photos">
+            <div class="client-photo-wrapper">
+                 <div class="active-photo">
+                   <img src="@/assets/image/icons/iconforphoto.png" alt="">
+                 </div>
+            </div>
+          </div>
+        </div>
+        <div class="client-sign">
+          <router-link class="signing btn" active-class="active" to="/partners-list">
+            Записаться к мастеру
+          </router-link>
+          <p>
+            *Запись бесплатная и ни к чему <br/>
+            вас не обязывает
+          </p>
         </div>
       </div>
     </div>
@@ -182,12 +200,17 @@ export default {
         },
       ],
       swiperOptions: {
-        dots: false,
         pagination: {
           el: ".swiper-pagination",
           autoHeight: false,
           effect: "cards",
         },
+      },
+
+      buttonSwiper: {
+        slidesPerView: 2,
+        dots: false,
+        spaceBetween: 10,
       },
       ratings: [
         {
@@ -215,16 +238,16 @@ export default {
         {
           imgUrl: require("@/assets/image/icons/iconforphoto.png"),
           name: "ooo beauty",
-          adresses: ["ddf", "iii", "dkf"],
+          adresses: ["Лодочная улица", "улица Серпуховский Вал", "Калужское шоссе"],
           coords: [55.783654, 37.384519],
-          subway: ["ffvfvf", "skjk", "ksuhdsu"],
+          subway: ["Садовническая улица", "площадь Киевского Вокзала", "площадь Славы"],
         },
         {
           imgUrl: require("@/assets/image/icons/iconforphoto.png"),
           name: "hair salon",
-          adresses: ["ddf", "kejdj", "ekhuf"],
+          adresses: ["Дубнинская улица", "улица 800-летия Москвы", "Дмитровское шоссе"],
           coords: [55.683659, 37.584515],
-          subway: ["sssccs", "shgdj", "sljjd"],
+          subway: ["набережная Тараса Шевченко","Московская Остановка", "Большая Академическая улица", "Старобитцевская улица"],
         },
       ],
     };
@@ -266,13 +289,18 @@ export default {
 
   &-top {
     display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
     gap: 50px;
   }
 
   .arrow {
+    display: flex;
+    align-items: center;
     width: 32px;
     height: 32px;
-    padding: 7px 9px 7px 7px;
+    padding: 10px;
+    background: #c9c9c9;
     border-radius: 50px;
     border: none;
     outline: none;
@@ -299,12 +327,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .client-top {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 50px;
   }
 
   &-img {
@@ -432,6 +454,16 @@ export default {
     margin-bottom: 73px;
   }
 
+  &-cards {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 43px;
+  }
+
+  &-map{
+    margin-bottom: 7px;
+  }
+
   .feedbacks {
     background: #f9f9f9;
     display: flex;
@@ -463,11 +495,6 @@ export default {
     border-radius: 10px;
   }
 
-  .masters-button-wrapper {
-    display: flex;
-    align-items: center;
-  }
-
   .masters-work {
     background: #f9f9f9;
     display: flex;
@@ -475,15 +502,60 @@ export default {
     padding: 14px 16px;
     border-radius: 10px;
     white-space: nowrap;
+    align-self: center;
 
-    &:not(:nth-child(odd)) {
-      margin: 8px;
-    }
+    // &:not(:nth-child(odd)) {
+    //   margin: 8px;
+    // }
 
     span {
       color: #141313;
       font-size: 12px;
       font-weight: 400;
+    }
+  }
+
+  &-need-photos{
+    margin-top: 8px;
+    margin-bottom: 80px;
+  }
+
+  &-photo-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50vh;
+    max-width: 280px;
+    max-height: 280px;
+    background: #c9c9c9;
+    border-radius: 10px;
+  }
+
+  &-sign{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .signing.btn{
+      color: #141313;
+      background: #f9f9f9;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 10px;
+
+      &:hover{
+       color: #ffffff;
+       background: #19a0fc;
+       font-weight: 600;
+      }
+    }
+
+    p{
+      color: #939393;
+      font-size: 10px;
+      font-weight: 400;
+      text-align: center;
     }
   }
 }
