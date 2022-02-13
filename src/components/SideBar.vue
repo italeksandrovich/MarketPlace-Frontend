@@ -42,7 +42,7 @@
           </div>
           <p class="link-name">Моя страница</p>
         </router-link>
-        <router-link class="link" active-class="active" to="/masters">
+        <router-link class="link" active-class="active" to="/favorities-page">
           <div class="link-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -57,7 +57,7 @@
               ></path>
             </svg>
           </div>
-          <p class="link-name">Моя страница</p>
+          <p class="link-name">Избранное</p>
         </router-link>
         <router-link class="link" active-class="active" to="/partners-page">
           <div class="link-icon">
@@ -74,7 +74,7 @@
               ></path>
             </svg>
           </div>
-          <p class="link-name">Моя страница</p>
+          <p class="link-name">Партнёры</p>
         </router-link>
         <router-link class="link" active-class="active" to="/partners-list">
           <div class="link-icon">
@@ -91,7 +91,7 @@
               ></path>
             </svg>
           </div>
-          <p class="link-name">Моя страница</p>
+          <p class="link-name">Список Партнёров</p>
         </router-link>
       </div>
     </div>

@@ -2,6 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "@/views/Home";
 import PartnerPage from "@/views/PartnerPage";
+import FavsPage from "@/views/FavsPage";
+
 
 Vue.use(VueRouter);
 
@@ -29,6 +31,14 @@ const routes = [
       layout: "main",
     },
     component: () => import("@/views/PartnersList"),
+  },
+  {
+    path: "/favorities-page",
+    name: "FavsPage",
+    meta: {
+      layout: "empty",
+    },
+    component: FavsPage,
   },
 ];
 

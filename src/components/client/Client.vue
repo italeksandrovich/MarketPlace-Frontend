@@ -284,7 +284,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.client {
+.client { 
   background: #ffffff;
 
   &-top {
@@ -379,6 +379,7 @@ export default {
   &-rate {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex: 1;
     background: #f9f9f9;
     border-radius: 10px;
@@ -423,6 +424,7 @@ export default {
 
     button {
       display: flex;
+      justify-content: center;
       align-items: center;
       flex: 1;
       padding: 13px 20px 13px 20px;
@@ -499,6 +501,8 @@ export default {
     background: #f9f9f9;
     display: flex;
     align-items: center;
+    height: 30px;
+    min-height: 30px;
     padding: 14px 16px;
     border-radius: 10px;
     white-space: nowrap;
@@ -512,6 +516,7 @@ export default {
       color: #141313;
       font-size: 12px;
       font-weight: 400;
+      margin-left: 5px;
     }
   }
 
@@ -543,14 +548,24 @@ export default {
       text-align: center;
       border-radius: 10px;
       margin-bottom: 10px;
+      animation: blinks 3s infinite;
 
       &:hover{
        color: #ffffff;
        background: #19a0fc;
-       font-weight: 600;
       }
+      
     }
-
+     @keyframes blinks {
+        0% {
+          box-shadow: 0 0 0 0 transparentize(#19a0fc, .6)
+        }
+        50% {
+           box-shadow: 0 0 0 50px transparentize(#19a0fc, 1)
+        }
+        100% {
+          box-shadow: 0 0 0 0 transparentize(#19a0fc, 1)
+        }}
     p{
       color: #939393;
       font-size: 10px;

@@ -40,74 +40,81 @@
     <div class="user-info__recommends">
       <p class="textCenter">80% клиентов рекомендуют</p>
     </div>
-    <div class="user-tabs__header">
-      <div class="user-tabs user-tabs__active">
-        <img src="@/assets/image/icon.svg" alt="icon" />Компания 1
-      </div>
-      <div class="user-tabs">
-        <img src="@/assets/image/icon.svg" alt="icon" />Компания 2
-      </div>
-    </div>
-    <div class="user-tabs__body">
-      <div class="user-tabs__list">
-        <div class="user-tabs__item user-tabs__item-active">
-          <div>
-            <b>Услуги</b>
-          </div>
-          <ul>
-            <li>Первичный осмотр <span>Стоимость: 590₽ </span></li>
-            <li>Услуга <span>Стоимость: 0₽ </span></li>
-            <li class="w-100">
-              <b>Адрес</b>
-              <span
-                >Россия, г. Москва. Ул. 2-я Кабельная. Дом 2. Строение 25, 26,
-                37.. Офис №308
-              </span>
-            </li>
-            <li>Авиамоторная <span>310 м</span></li>
-            <li>Авиамоторная <span>310 м</span></li>
-          </ul>
+    <div class="hide-part" v-if="isOpen || !expandable">
+      <div class="user-tabs__header">
+        <div class="user-tabs user-tabs__active">
+          <img src="@/assets/image/icon.svg" alt="icon" />Компания 1
         </div>
-        <!--        <div class="user-tabs__item">-->
-        <!--          <div>-->
-        <!--            <b>Услуги</b>-->
-        <!--          </div>-->
-        <!--          <ul>-->
-        <!--            <li>Первичный осмотр <span>Стоимость: 590₽ </span></li>-->
-        <!--            <li>Услуга <span>Стоимость: 0₽ </span></li>-->
-        <!--            <li class="w-100"><b>Адрес</b> <span>Россия, г. Москва. Ул. 2-я Кабельная. Дом 2. Строение 25, 26, 37.. Офис №308 </span>-->
-        <!--            </li>-->
-        <!--            <li>Авиамоторная <span>310 м<</span></li>-->
-        <!--            <li>Авиамоторная <span>310 м<</span></li>-->
-        <!--          </ul>-->
-        <!--        </div>-->
+        <div class="user-tabs">
+          <img src="@/assets/image/icon.svg" alt="icon" />Компания 2
+        </div>
+      </div>
+      <div class="user-tabs__body">
+        <div class="user-tabs__list">
+          <div class="user-tabs__item user-tabs__item-active">
+            <div>
+              <b>Услуги</b>
+            </div>
+            <ul>
+              <li>Первичный осмотр <span>Стоимость: 590₽ </span></li>
+              <li>Услуга <span>Стоимость: 0₽ </span></li>
+              <li class="w-100">
+                <b>Адрес</b>
+                <span
+                  >Россия, г. Москва. Ул. 2-я Кабельная. Дом 2. Строение 25, 26,
+                  37.. Офис №308
+                </span>
+              </li>
+              <li>Авиамоторная <span>310 м</span></li>
+              <li>Авиамоторная <span>310 м</span></li>
+            </ul>
+          </div>
+          <!--        <div class="user-tabs__item">-->
+          <!--          <div>-->
+          <!--            <b>Услуги</b>-->
+          <!--          </div>-->
+          <!--          <ul>-->
+          <!--            <li>Первичный осмотр <span>Стоимость: 590₽ </span></li>-->
+          <!--            <li>Услуга <span>Стоимость: 0₽ </span></li>-->
+          <!--            <li class="w-100"><b>Адрес</b> <span>Россия, г. Москва. Ул. 2-я Кабельная. Дом 2. Строение 25, 26, 37.. Офис №308 </span>-->
+          <!--            </li>-->
+          <!--            <li>Авиамоторная <span>310 м<</span></li>-->
+          <!--            <li>Авиамоторная <span>310 м<</span></li>-->
+          <!--          </ul>-->
+          <!--        </div>-->
+        </div>
+      </div>
+
+      <div class="user-info__text">
+        <img src="@/assets/image/icon.svg" alt="icon" />
+        Выберите желаемое время и ожидайте подтверждения
+      </div>
+
+      <div class="tabs__header">
+        <div class="tabs tabs__active">Среда, 26</div>
+        <div class="tabs">Среда, 26</div>
+        <div class="tabs">Среда, 26</div>
+        <div class="tabs">Среда, 26</div>
+        <div class="tabs">Среда, 26</div>
+      </div>
+
+      <div class="tabs__header">
+        <div class="tabs tabs-min">08:00</div>
+        <div class="tabs tabs-min">09:00</div>
+        <div class="tabs tabs-min">10:00</div>
+        <div class="tabs tabs-min">14:00</div>
+        <div class="tabs tabs-min">15:00</div>
+        <div class="tabs tabs-min">17:00</div>
+        <div class="tabs tabs-min">19:00</div>
+      </div>
+      <div class="user-info__recommends mb-0">
+        <p class="textCenter">Следующий прием: Ср, 27 января</p>
       </div>
     </div>
-
-    <div class="user-info__text">
-      <img src="@/assets/image/icon.svg" alt="icon" />
-      Выберите желаемое время и ожидайте подтверждения
-    </div>
-
-    <div class="tabs__header">
-      <div class="tabs tabs__active">Среда, 26</div>
-      <div class="tabs">Среда, 26</div>
-      <div class="tabs">Среда, 26</div>
-      <div class="tabs">Среда, 26</div>
-      <div class="tabs">Среда, 26</div>
-    </div>
-
-    <div class="tabs__header">
-      <div class="tabs tabs-min">08:00</div>
-      <div class="tabs tabs-min">09:00</div>
-      <div class="tabs tabs-min">10:00</div>
-      <div class="tabs tabs-min">14:00</div>
-      <div class="tabs tabs-min">15:00</div>
-      <div class="tabs tabs-min">17:00</div>
-      <div class="tabs tabs-min">19:00</div>
-    </div>
-    <div class="user-info__recommends mb-0">
-      <p class="textCenter">Следующий прием: Ср, 27 января</p>
+    <div v-if="expandable" class="user-info__button" @click="isOpen = !isOpen">
+      <button :class="[{ active: isOpen }, 'open-button']">
+        <img src="@/assets/image/icons/arrow.svg" alt="" />
+      </button>
     </div>
   </div>
 </template>
@@ -115,6 +122,19 @@
 <script>
 export default {
   name: "PartnersCart",
+
+  data() {
+    return {
+      isOpen: false,
+    };
+  },
+
+  props: {
+    expandable: {
+      type: Boolean,
+      default: false,
+    },
+  },
 };
 </script>
 
@@ -125,7 +145,6 @@ export default {
 .user-info {
   margin-bottom: 16px;
   background-color: #f9f9f9;
-  //background-color: red;
   padding: 14px;
   border-radius: 12px;
   margin-bottom: 10px;
@@ -212,6 +231,7 @@ export default {
         font-size: 12px;
         color: rgb(0, 0, 0);
         line-height: 1.2;
+        list-style: none;
 
         > div {
           padding: 4px 8px;
@@ -243,6 +263,23 @@ export default {
     img {
       display: block;
       margin-right: 10px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f9f9f9;
+  }
+
+  .open-button {
+    background: transparent;
+    transform: rotate(90deg);
+    transition: 0.3s;
+
+    &.active {
+      transform: rotate(-90deg);
     }
   }
 }
