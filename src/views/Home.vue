@@ -1,33 +1,73 @@
 <template>
   <div class="home">
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis quod saepe
-    obcaecati distinctio voluptatum nulla nesciunt, eos deleniti, molestiae
-    cumque aliquid ab. Doloremque sit distinctio maxime rerum id dolorem tempore
-    maiores! Natus, cum! Eaque reprehenderit ratione beatae nesciunt doloremque
-    animi qui! Aliquid quas, neque, ullam similique ex ipsum necessitatibus
-    consequuntur quo. Voluptates ut quod quam autem praesentium illum
-    necessitatibus nostrum excepturi! Ullam reprehenderit cupiditate repellendus
-    sapiente quo itaque quos praesentium reiciendis voluptas beatae. Modi,
-    facilis nisi? Ipsa dolore consequatur error dolorum quas ab quaerat beatae
-    nemo ut, harum fuga esse dicta ullam impedit porro culpa est adipisci libero
-    similique perferendis in voluptas illo necessitatibus quis? Ipsa doloremque
-    volup
+    <input type="date" v-model="date">
+    <vue-cal :selected-date="date"
+             :time-from="9 * 60"
+             :time-to="19 * 60"
+             :disable-views="['years', 'year','month','day']"
+             :events="events" />
   </div>
 </template>
 
 <script>
+import VueCal from 'vue-cal'
+import 'vue-cal/dist/vuecal.css'
+
   export default {
     name: 'Home',
+    components: { VueCal },
     data() {
-      return {}
+      return {
+        selectedEvent: {},
+        showDialog: false,
+        date:'2018-11-19',
+        events: [
+          {
+            start: '2018-11-20 14:00',
+            end: '2018-11-20 18:00',
+            title: 'Need to go shopping',
+            icon: 'shopping_cart', // Custom attribute.
+            content: 'Click to see my shopping list',
+            contentFull: 'My shopping list is rather long:<br><ul><li>Avocados</li><li>Tomatoes</li><li>Potatoes</li><li>Mangoes</li></ul>', // Custom attribute.
+            class: 'leisure'
+          },
+          {
+            start: '2018-11-22 10:00',
+            end: '2018-11-22 15:00',
+            title: 'Golf with John',
+            icon: 'golf_course', // Custom attribute.
+            content: 'Do I need to tell how many holes?',
+            contentFull: 'Okay.<br>It will be a 18 hole golf course.', // Custom attribute.
+            class: 'sport'
+          }
+        ]
+      }
     },
     methods: {}
   }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .home {
-    display: flex;
     width: 100%;
+  }
+
+  .vuecal__event {cursor: pointer;}
+
+  .vuecal__event-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 4px 0 8px;
+  }
+
+  .vuecal__event-time {
+    display: inline-block;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  .vuecal__event-content {
+    font-style: italic;
   }
 </style>
