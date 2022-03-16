@@ -109,7 +109,7 @@ export default {
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
-
+  background-color: #F4F5FD;
   .main {
     &-header {
       position: fixed;
@@ -119,11 +119,21 @@ export default {
       background: #ffffff;
       padding: 15px;
     }
-
+    &-sidebar{
+      width: 100px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+    }
     &-page {
-      padding: 15px;
+      /* padding: 80px 10px 15px;*/
       flex: 1;
       overflow: hidden auto;
+      border-radius: 32px 0 0 32px;
+      margin-left: 100px;
+      max-width: calc(100% - 100px);
+      background: #ffffff;
     }
 
     &-footer {

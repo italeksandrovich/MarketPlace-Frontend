@@ -3,15 +3,17 @@
     <div class="main-sidebar">
       <SideBar v-model="isOpen" @sign="openPopup" />
     </div>
-    <div class="main-header" @click="isOpen = true">
-      <button class="arrow">
-        <img src="@/assets/image/icons/arrow.svg" alt="" />
-      </button>
-    </div>
+    
     <div class="main-page">
-      <div class="container">
-        <slot />
-      </div>
+      <!--<div class="main-header" @click="isOpen = true">
+        <button class="arrow">
+          <img src="@/assets/image/icons/arrow.svg" alt="" />
+        </button>
+      </div>-->
+      <slot />
+      <!--<div class="container">
+      
+      </div>-->
     </div>
 
     <!-- there is no footer in layout -->
@@ -58,7 +60,7 @@ export default {
   components: { SideBar, Popup, Authorization, Register, Password, Confirm },
   data() {
     return {
-      isOpen: false,
+      isOpen: true,
       status: "",
       authPopupShow: false,
       authPopup: {},
@@ -106,22 +108,32 @@ export default {
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
-  background-color: #fff;
+  background-color: #F4F5FD;
   .main {
     &-header {
-      position: fixed;
+    /*  position: fixed;
       top: 0;
       right: 0;
-      left: 0;
+      left: 0;*/
       background: #ffffff;
       padding: 15px;
       z-index: 3;
     }
-
+    &-sidebar{
+      width: 100px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100vh;
+    }
     &-page {
-      padding: 80px 10px 15px;
+     /* padding: 80px 10px 15px;*/
       flex: 1;
       overflow: hidden auto;
+      border-radius: 32px 0 0 32px;
+      margin-left: 100px;
+      max-width: calc(100% - 100px);
+      background: #ffffff;
     }
 
     &-footer {
