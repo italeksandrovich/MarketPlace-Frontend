@@ -1,12 +1,9 @@
 <template>
   <div class="home">
     <div class="home-date">
-     <!-- <calendar v-model="date"/>-->
-<!--      <input type="date" v-model="date">-->
       <div class="d-flex">
         <div class="home__calendar">
           <DatePicker v-model="date" mode="date"  :masks="masks" title-position="left" :max-date="new Date()"  color="indigo" >
-      
             <template v-slot="{ inputValue, inputEvents }" >
               <input
                 ref="calendarInput"
@@ -20,10 +17,7 @@
           <div  class="home__calendar--mm" @click="openCalendar">{{dateNameText }}</div>
         </div>
       </div>
-      
-      
     </div>
-    
     <vue-cal :selected-date="date"
              :time-from="9 * 60"
              :time-to="19 * 60"
@@ -52,8 +46,7 @@ import DatePicker from 'v-calendar/lib/components/date-picker.umd'
         visibility: 'hidden',
         masks: {
           mode: 'date',
-          title: 'MMMM',
-        
+          title: 'MMMM'
         },
         selectedEvent: {},
         showDialog: false,
@@ -85,47 +78,23 @@ import DatePicker from 'v-calendar/lib/components/date-picker.umd'
         return this.date.format('MM')
       },
       dateName(){
-        if ( this.formattedDate == "01"){
-          this.dateNameText = 'Январь '
-        }
-        if ( this.formattedDate == "02"){
-          this.dateNameText = 'Февраль '
-        }
-        if ( this.formattedDate == "03"){
-          this.dateNameText = 'Март '
-        }
-        if ( this.formattedDate == "04"){
-          this.dateNameText = 'Апрель '
-        }
-        if ( this.formattedDate == "05"){
-          this.dateNameText = 'Май '
-        }
-        if ( this.formattedDate == "06"){
-          this.dateNameText = 'Июнь '
-        }
-        if ( this.formattedDate == "07"){
-          this.dateNameText = 'Июль '
-        }
-        if ( this.formattedDate == "08"){
-          this.dateNameText = 'Август '
-        }
-        if ( this.formattedDate == "09"){
-          this.dateNameText = 'Сентябрь '
-        }
-        if ( this.formattedDate == "10"){
-          this.dateNameText = 'Октябрь '
-        }
-        if ( this.formattedDate == "11"){
-          this.dateNameText = 'Ноябрь '
-        }
-        if ( this.formattedDate == "12"){
-          this.dateNameText = 'Декабрь '
-        }
+        if ( this.formattedDate === "01") this.dateNameText = 'Январь '
+        if ( this.formattedDate === "02") this.dateNameText = 'Февраль '
+        if ( this.formattedDate === "03") this.dateNameText = 'Март '
+        if ( this.formattedDate === "04") this.dateNameText = 'Апрель '
+        if ( this.formattedDate === "05") this.dateNameText = 'Май '
+        if ( this.formattedDate === "06") this.dateNameText = 'Июнь '
+        if ( this.formattedDate === "07") this.dateNameText = 'Июль '
+        if ( this.formattedDate === "08") this.dateNameText = 'Август '
+        if ( this.formattedDate === "09") this.dateNameText = 'Сентябрь '
+        if ( this.formattedDate === "10") this.dateNameText = 'Октябрь '
+        if ( this.formattedDate === "11") this.dateNameText = 'Ноябрь '
+        if ( this.formattedDate === "12") this.dateNameText = 'Декабрь '
       }
     },
     methods: {
       openCalendar() {
-        this.$refs.calendarInput.focus();
+        this.$refs.calendarInput.focus()
       },
     }
   }
