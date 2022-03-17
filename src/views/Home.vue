@@ -3,16 +3,25 @@
     <div class="home-date">
      <!-- <calendar v-model="date"/>-->
 <!--      <input type="date" v-model="date">-->
+      <div class="d-flex">
+        <div class="home__calendar">
+          <DatePicker v-model="date" mode="date"  :masks="masks" title-position="left" :max-date="new Date()"  color="indigo" >
       
-      <DatePicker v-model="date" mode="date"  :masks="masks">
-        <template v-slot="{ inputValue, inputEvents }">
-          <input
-            class="px-3 py-1 border rounded"
-            :value="inputValue"
-            v-on="inputEvents"
-          />
-        </template>
-      </DatePicker>
+            <template v-slot="{ inputValue, inputEvents }" >
+              <input
+                ref="calendarInput"
+                class="home__calendar--input"
+                :value="inputValue"
+                v-on="inputEvents"
+                @change="dateName"
+              />
+            </template>
+          </DatePicker>
+          <div  class="home__calendar--mm" @click="openCalendar">{{dateNameText }}</div>
+        </div>
+      </div>
+      
+      
     </div>
     
     <vue-cal :selected-date="date"
@@ -20,10 +29,11 @@
              :time-to="19 * 60"
              hide-view-selector
              hide-weekends
-             
              :disable-views="['years', 'year','month','day']"
              active-view="month"
-             :events="events" />
+             :events="events"
+             :time-cell-height="99"
+    />
   </div>
 </template>
 
@@ -38,10 +48,12 @@ import DatePicker from 'v-calendar/lib/components/date-picker.umd'
     data() {
       return {
         date: new Date(),
+        dateNameText:"",
+        visibility: 'hidden',
         masks: {
-          navMonths: 'MMM',
-          inputTime:false,
-          mode: 'date'
+          mode: 'date',
+          title: 'MMMM',
+        
         },
         selectedEvent: {},
         showDialog: false,
@@ -68,7 +80,54 @@ import DatePicker from 'v-calendar/lib/components/date-picker.umd'
         ]
       }
     },
-    methods: {}
+    computed: {
+      formattedDate() {
+        return this.date.format('MM')
+      },
+      dateName(){
+        if ( this.formattedDate == "01"){
+          this.dateNameText = 'Январь '
+        }
+        if ( this.formattedDate == "02"){
+          this.dateNameText = 'Февраль '
+        }
+        if ( this.formattedDate == "03"){
+          this.dateNameText = 'Март '
+        }
+        if ( this.formattedDate == "04"){
+          this.dateNameText = 'Апрель '
+        }
+        if ( this.formattedDate == "05"){
+          this.dateNameText = 'Май '
+        }
+        if ( this.formattedDate == "06"){
+          this.dateNameText = 'Июнь '
+        }
+        if ( this.formattedDate == "07"){
+          this.dateNameText = 'Июль '
+        }
+        if ( this.formattedDate == "08"){
+          this.dateNameText = 'Август '
+        }
+        if ( this.formattedDate == "09"){
+          this.dateNameText = 'Сентябрь '
+        }
+        if ( this.formattedDate == "10"){
+          this.dateNameText = 'Октябрь '
+        }
+        if ( this.formattedDate == "11"){
+          this.dateNameText = 'Ноябрь '
+        }
+        if ( this.formattedDate == "12"){
+          this.dateNameText = 'Декабрь '
+        }
+      }
+    },
+    methods: {
+      openCalendar() {
+        this.$refs.calendarInput.focus();
+      },
+    }
   }
 </script>
 
@@ -103,7 +162,7 @@ import DatePicker from 'v-calendar/lib/components/date-picker.umd'
       background: rgba(255, 255, 255, 0.82);
       border-top: 1px solid #EAEAEB;
       border-bottom: 1px solid #EAEAEB;
-      padding: 21px 44px ;
+      padding: 21px 0px ;
       position: relative;
     }
    
@@ -153,5 +212,133 @@ import DatePicker from 'v-calendar/lib/components/date-picker.umd'
       line-height: 29px;
       color: #141414;
     }
+    &__time-column{
+      width: 112px;
+      .vuecal__time-cell{
+        text-align: center;
+        font-size: 17px;
+        line-height: 21px;
+        color: #141414;
+      }
+      .vuecal__time-cell-line:before{
+        left: 112px;
+        border-top: 1px solid #E5E5E5;
+      }
+    }
+    &__cell--selected{
+      background: #F9F9F9;
+    }
+  &--view-with-time .vuecal__weekdays-headings{
+    padding-left: 112px;
+    padding-right: 0;
   }
+    &__event{
+      background: #F5F5F5;
+      border-radius: 8px;
+      padding: 16px;
+      color: #868686;
+      text-align: left;
+      &:before {
+        content: "";
+        position: absolute;
+        width: 4px;
+        left: 0px;
+        top: 0%;
+        bottom: 0%;
+        background: #AEAEAE;
+      }
+      &--focus{
+        background: #556BF4!important;
+        color: #FFFFFF!important;
+        &:before {
+          background: #556BF4!important;
+        }
+      }
+      &:hover {
+        background: #E5E9F8;
+        color: #556BF4;
+        &:before {
+          background: #556BF4;
+        }
+      }
+      &-time{
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+        padding: 0;
+        margin: 2px 0;
+        border-bottom: none;
+      }
+      &-title{
+        font-weight: 500;
+        font-size: 17px;
+        line-height: 21px;
+        margin: 2px 0;
+      }
+      &-content{
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+        font-style: normal;
+        margin: 2px 0;
+      }
+    }
+  }
+  .home__calendar{
+    .vc-popover-content-wrapper{
+      margin-top: -50px!important;
+    }
+    .vc-popover-caret{
+      display: none;
+    }
+    .vc-title{font-size: 24px;
+      line-height: 29px;
+      color: #141414;
+      &:first-letter{
+        text-transform: uppercase;
+      }
+    }
+    .vc-popover-content{
+      border: none;
+      background: #FFFFFF;
+      box-shadow: 4px 16px 32px rgba(20, 20, 20, 0.15);
+      border-radius: 12px;
+    }
+    &--input{
+      height: 0;
+      opacity: 0;
+      width: 0;
+    }
+    &--mm{
+      padding: 8px 60px 8px 20px;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 48px;
+      position: relative;
+      color: #141414;
+      border-radius: 12px;
+      display: inline-block;
+      cursor: pointer;
+      &:before {
+        content: "";
+        position: absolute;
+        top: calc(50% - 3px);
+        right: 28px;
+        transform: translate(0, -50%) rotate(-45deg);
+        padding: 0;
+        width: 12px;
+        height: 12px;
+        border-color: #868686;
+        border-width: 0 0 2px  2px;
+        border-style: solid;
+      }
+      &:hover {
+        background: #F5F5F5;
+        &:before {
+          border-color: #556BF4;
+        }
+      }
+    }
+  }
+
 </style>
