@@ -108,7 +108,7 @@ export default {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow: hidden;
+/*  overflow: hidden;*/
   background-color: #F4F5FD;
   .main {
     &-header {
@@ -129,7 +129,7 @@ export default {
     &-page {
       /* padding: 80px 10px 15px;*/
       flex: 1;
-      overflow: hidden auto;
+    /*  overflow: hidden auto;*/
       border-radius: 32px 0 0 32px;
       margin-left: 100px;
       max-width: calc(100% - 100px);
